@@ -1,2 +1,2 @@
 # PrintScreen
-Projeto em .Net framework 4.8 em Windows Forms.
+Projeto em .Net framework 4.8 com Windows Forms.
