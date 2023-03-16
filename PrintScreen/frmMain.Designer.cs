@@ -97,13 +97,15 @@ namespace PrintScreen
             // 
             // btnFolder
             // 
+            this.btnFolder.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnFolder.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFolder.Location = new System.Drawing.Point(524, 201);
             this.btnFolder.Margin = new System.Windows.Forms.Padding(4);
             this.btnFolder.Name = "btnFolder";
             this.btnFolder.Size = new System.Drawing.Size(140, 44);
             this.btnFolder.TabIndex = 5;
-            this.btnFolder.Text = "Folder";
+            this.btnFolder.Text = "Choose Folder";
             this.btnFolder.UseVisualStyleBackColor = true;
             this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
             // 
@@ -211,10 +213,11 @@ namespace PrintScreen
             // 
             // lblOpenFolder
             // 
+            this.lblOpenFolder.Image = global::PrintScreen.Properties.Resources.Folder;
             this.lblOpenFolder.IsLink = true;
             this.lblOpenFolder.LinkVisited = true;
             this.lblOpenFolder.Name = "lblOpenFolder";
-            this.lblOpenFolder.Size = new System.Drawing.Size(107, 23);
+            this.lblOpenFolder.Size = new System.Drawing.Size(127, 23);
             this.lblOpenFolder.Text = "Open Folder";
             this.lblOpenFolder.Click += new System.EventHandler(this.lblOpenFolder_Click);
             // 
@@ -226,8 +229,9 @@ namespace PrintScreen
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.Image = global::PrintScreen.Properties.Resources.Image;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(94, 23);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(114, 23);
             this.toolStripStatusLabel1.Text = "File Name:";
             // 
             // lblFileName
