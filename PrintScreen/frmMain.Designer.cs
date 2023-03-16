@@ -27,7 +27,6 @@ namespace PrintScreen
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnGrabScreen = new System.Windows.Forms.Button();
             this.btnGrabArea = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.btnGrabAllWindows = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.txtFolder = new System.Windows.Forms.TextBox();
@@ -72,18 +71,6 @@ namespace PrintScreen
             this.btnGrabArea.Text = "Grab Area";
             this.btnGrabArea.UseVisualStyleBackColor = true;
             this.btnGrabArea.Click += new System.EventHandler(this.btnGrabArea_Click);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.Location = new System.Drawing.Point(568, 28);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(98, 44);
-            this.btnHelp.TabIndex = 2;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnGrabAllWindows
             // 
@@ -146,7 +133,7 @@ namespace PrintScreen
             this.txtPrefix.Location = new System.Drawing.Point(180, 35);
             this.txtPrefix.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(317, 32);
+            this.txtPrefix.Size = new System.Drawing.Size(486, 32);
             this.txtPrefix.TabIndex = 8;
             // 
             // label3
@@ -177,6 +164,11 @@ namespace PrintScreen
             this.nupIncrementalNumber.Name = "nupIncrementalNumber";
             this.nupIncrementalNumber.Size = new System.Drawing.Size(118, 31);
             this.nupIncrementalNumber.TabIndex = 12;
+            this.nupIncrementalNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // rdbtnDateTime
             // 
@@ -261,7 +253,6 @@ namespace PrintScreen
             this.Controls.Add(this.btnFolder);
             this.Controls.Add(this.txtFolder);
             this.Controls.Add(this.btnGrabAllWindows);
-            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnGrabArea);
             this.Controls.Add(this.btnGrabScreen);
             this.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,7 +276,6 @@ namespace PrintScreen
        
         private System.Windows.Forms.Button btnGrabScreen;
         private System.Windows.Forms.Button btnGrabArea;
-        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnGrabAllWindows;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox txtFolder;

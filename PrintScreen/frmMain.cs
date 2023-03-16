@@ -261,8 +261,8 @@ namespace PrintScreen
         private void btnHelp_Click(object sender, EventArgs e)  //help button pressed
         {
             MessageBox.Show("This program is used to capture either the entire screen or part of it and save it into Clipboard. It supports multiple screens. \n\nUSAGE:\n\n FOR CAPTURING ENTIRE SCREEN:\n\n 1. Select second button and then you shall see mouse cursor suggesting to click to capture that screen.\n\n2. Paste the image into any program for usage." +
-            "\n\nFOR CAPTURING A SECTION OF THE SCREEN:\n\n1. Select button one and you shall see mouse cursor changing to tilted arrows.\n\n2. Click mouse left key and keeping it pressed, select the area of interest.\n\n3. Leave the left button and the image is saved to clipboard.\n\n FOR CAPTURING ALL SCREENS:\n\n1. Press the 3rd button and All the screens are captured into one image.\n\n\nThanks for using the utility. Send in your feedback or bugs to mittaltarsem@gmail.com"
-            , "SCREEN CAPTURE HELP !!");
+            "\n\nFOR CAPTURING A SECTION OF THE SCREEN:\n\n1. Select button one and you shall see mouse cursor changing to tilted arrows.\n\n2. Click mouse left key and keeping it pressed, select the area of interest.\n\n3. Leave the left button and the image is saved to clipboard.\n\n FOR CAPTURING ALL SCREENS:\n\n1. Press the 3rd button and All the screens are captured into one image.\n\n\nThanks for using the utility."
+            , "Print Screen Help");
         }
         #endregion Events
     }
