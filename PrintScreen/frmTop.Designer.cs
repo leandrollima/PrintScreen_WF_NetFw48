@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Screen_Grab
+namespace PrintScreen
 {
     partial class frmTop
     {

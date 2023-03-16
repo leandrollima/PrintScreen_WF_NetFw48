@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-namespace Screen_Grab
+namespace PrintScreen
 {
     partial class frmMain
     {
@@ -40,8 +40,13 @@ namespace Screen_Grab
             this.nupIncrementalNumber = new System.Windows.Forms.NumericUpDown();
             this.rdbtnDateTime = new System.Windows.Forms.RadioButton();
             this.rdbtnGuid = new System.Windows.Forms.RadioButton();
-            this.lblFileName = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblOpenFolder = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblFileName = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nupIncrementalNumber)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGrabScreen
@@ -195,14 +200,48 @@ namespace Screen_Grab
             this.rdbtnGuid.Text = "GUID";
             this.rdbtnGuid.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Font = new System.Drawing.Font("Open Sans", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblOpenFolder,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel1,
+            this.lblFileName});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 348);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(705, 29);
+            this.statusStrip1.TabIndex = 16;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblOpenFolder
+            // 
+            this.lblOpenFolder.IsLink = true;
+            this.lblOpenFolder.LinkVisited = true;
+            this.lblOpenFolder.Name = "lblOpenFolder";
+            this.lblOpenFolder.Size = new System.Drawing.Size(107, 23);
+            this.lblOpenFolder.Text = "Open Folder";
+            this.lblOpenFolder.Click += new System.EventHandler(this.lblOpenFolder_Click);
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(19, 23);
+            this.toolStripStatusLabel3.Text = "|";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(94, 23);
+            this.toolStripStatusLabel1.Text = "File Name:";
+            // 
             // lblFileName
             // 
-            this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(24, 339);
+            this.lblFileName.IsLink = true;
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(91, 23);
-            this.lblFileName.TabIndex = 15;
-            this.lblFileName.Text = "File name:";
+            this.lblFileName.Size = new System.Drawing.Size(0, 23);
+            this.lblFileName.Click += new System.EventHandler(this.lblFileName_Click);
             // 
             // frmMain
             // 
@@ -210,7 +249,7 @@ namespace Screen_Grab
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(705, 377);
-            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.rdbtnGuid);
             this.Controls.Add(this.rdbtnDateTime);
             this.Controls.Add(this.nupIncrementalNumber);
@@ -232,10 +271,12 @@ namespace Screen_Grab
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "PrintScreen";
+            this.Text = "Print Screen";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nupIncrementalNumber)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +298,10 @@ namespace Screen_Grab
         private System.Windows.Forms.NumericUpDown nupIncrementalNumber;
         private System.Windows.Forms.RadioButton rdbtnDateTime;
         private System.Windows.Forms.RadioButton rdbtnGuid;
-        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblFileName;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblOpenFolder;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }

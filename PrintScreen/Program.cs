@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Screen_Grab
+namespace PrintScreen
 {
     static class Program
     {

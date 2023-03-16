@@ -1,20 +1,17 @@
-﻿using Microsoft.Win32;
-using PrintScreen;
-using PrintScreen.Properties;
+﻿using PrintScreen.Properties;
 using System;
+using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Screen_Grab
+namespace PrintScreen
 {
     public partial class frmMain : Form
     {
         int numberOfScreens = 0;
         frmTop[] grabWindow;
         Screen[] screens;
-
-        int index = 0;
 
         public frmMain()
         {
@@ -26,6 +23,7 @@ namespace Screen_Grab
             getSettings();
         }
 
+        #region private methods
         private void setStart()
         {
             //determine start location
@@ -37,20 +35,19 @@ namespace Screen_Grab
                 ty = 0;
                 //check if last close position is within first screen
                 if (tx < screens[0].Bounds.X || tx > (screens[0].Bounds.X + screens[0].Bounds.Width) || ty < screens[0].Bounds.Y || ty > (screens[0].Bounds.Y + screens[0].Bounds.Height))
-                { this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; }
+                { this.StartPosition = FormStartPosition.CenterScreen; }
                 else
                 {
-                    this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+                    this.StartPosition = FormStartPosition.Manual;
                     this.Location = new System.Drawing.Point(tx, ty);
                 }
             }
-            catch { this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen; }
+            catch { this.StartPosition = FormStartPosition.CenterScreen; }
         }
 
         private void getSettings()
         {
             txtFolder.Text = Settings.Default.Path;
-
             txtPrefix.Text = Settings.Default.Prefix;
 
             SuffixOptions suffixType = (SuffixOptions)Settings.Default.Suffix;
@@ -104,6 +101,31 @@ namespace Screen_Grab
             return fileName;
         }
 
+        private void OpenFolderFromFile()
+        {
+            var path = lblFileName.Text;    
+
+            if (string.IsNullOrEmpty(lblFileName.Text))
+            {
+                if (string.IsNullOrEmpty(txtFolder.Text))
+                    return;
+
+                if(!txtFolder.Text.EndsWith("\\"))
+                    txtFolder.Text += "\\"; 
+
+                path = Path.GetDirectoryName(txtFolder.Text);
+            }
+            else
+                path = Directory.GetParent(path).FullName;
+
+            if (!Directory.Exists(path))
+                MessageBox.Show("The directory does not exist!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            Process.Start(path);
+        }
+        #endregion private methods
+
+        #region public methods
         public void SaveImageFromClipboard()
         {
             if (Clipboard.ContainsImage())
@@ -111,18 +133,16 @@ namespace Screen_Grab
                 if (!Directory.Exists(txtFolder.Text))
                     Directory.CreateDirectory(txtFolder.Text);
 
-                string fullPath = Path.Combine(txtFolder.Text, FileName());
-                lblFileName.Text = $"File name: {fullPath}";
+                lblFileName.Text = Path.Combine(txtFolder.Text, FileName());
 
-                Clipboard.GetImage().Save(fullPath, ImageFormat.Png);
-                index++;
+                Clipboard.GetImage().Save(lblFileName.Text, ImageFormat.Png);
             }
         }
 
         public void GrabWholeScreen(int numberOfScreen)  // called when ALL screen capture; sc is screen number
         {
             for (int j = 0; j < numberOfScreens; j++) { grabWindow[j].Close(); grabWindow[j].Dispose(); }
-            Screen_Grab.Capture.CaptureScreentoClipboard(screens[numberOfScreen].Bounds.X, screens[numberOfScreen].Bounds.Y, screens[numberOfScreen].Bounds.Width, screens[numberOfScreen].Bounds.Height);
+            PrintScreen.Capture.CaptureScreentoClipboard(screens[numberOfScreen].Bounds.X, screens[numberOfScreen].Bounds.Y, screens[numberOfScreen].Bounds.Width, screens[numberOfScreen].Bounds.Height);
             this.Visible = true;  //make your original window visible
             
         }
@@ -135,17 +155,17 @@ namespace Screen_Grab
             finaly = Y1 + screens[sc].Bounds.Y;
             finalwidth = X2 - X1 + 1;
             finalheight = Y2 - Y1 + 1;
-            Screen_Grab.Capture.CaptureScreentoClipboard(finalx, finaly, finalwidth, finalheight);
-            this.Visible = true;
-            
+            PrintScreen.Capture.CaptureScreentoClipboard(finalx, finaly, finalwidth, finalheight);
+            this.Visible = true;            
         }
+        #endregion public methods
 
         #region Events
         private void btnGrabArea_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtFolder.Text))
             {
-                MessageBox.Show("Select a folder to save images");
+                MessageBox.Show("Select a folder to save images", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -167,7 +187,7 @@ namespace Screen_Grab
         {
             if (string.IsNullOrEmpty(txtFolder.Text))
             {
-                MessageBox.Show("Select a folder to save images");
+                MessageBox.Show("Select a folder to save images", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -186,18 +206,12 @@ namespace Screen_Grab
                 i++;
             }
         }
-        private void btnHelp_Click(object sender, EventArgs e)  //help button pressed
-        {
-            MessageBox.Show("This program is used to capture either the entire screen or part of it and save it into Clipboard. It supports multiple screens. \n\nUSAGE:\n\n FOR CAPTURING ENTIRE SCREEN:\n\n 1. Select second button and then you shall see mouse cursor suggesting to click to capture that screen.\n\n2. Paste the image into any program for usage." +
-            "\n\nFOR CAPTURING A SECTION OF THE SCREEN:\n\n1. Select button one and you shall see mouse cursor changing to tilted arrows.\n\n2. Click mouse left key and keeping it pressed, select the area of interest.\n\n3. Leave the left button and the image is saved to clipboard.\n\n FOR CAPTURING ALL SCREENS:\n\n1. Press the 3rd button and All the screens are captured into one image.\n\n\nThanks for using the utility. Send in your feedback or bugs to mittaltarsem@gmail.com"
-            , "SCREEN CAPTURE HELP !!");
-        }
 
         private void btnGrabAllWindows_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtFolder.Text))
             {
-                MessageBox.Show("Select a folder to save images");
+                MessageBox.Show("Select a folder to save images", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -210,7 +224,7 @@ namespace Screen_Grab
                 if (maxwidth < (screens[i].Bounds.X + screens[i].Bounds.Width)) maxwidth = screens[i].Bounds.X + screens[i].Bounds.Width;
                 if (maxheight < (screens[i].Bounds.Y + screens[i].Bounds.Height)) maxheight = screens[i].Bounds.Y + screens[i].Bounds.Height;
             }
-            Screen_Grab.Capture.CaptureScreentoClipboard(0, 0, maxwidth, maxheight);
+            PrintScreen.Capture.CaptureScreentoClipboard(0, 0, maxwidth, maxheight);
             this.Visible = true;
         }
 
@@ -228,6 +242,28 @@ namespace Screen_Grab
             setSettings();
         }
 
+        private void lblFileName_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(lblFileName.Text))
+                Process.Start(lblFileName.Text);
+            else
+            {
+                OpenFolderFromFile();
+                MessageBox.Show("The file does not exist!", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblOpenFolder_Click(object sender, EventArgs e)
+        {
+            OpenFolderFromFile();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)  //help button pressed
+        {
+            MessageBox.Show("This program is used to capture either the entire screen or part of it and save it into Clipboard. It supports multiple screens. \n\nUSAGE:\n\n FOR CAPTURING ENTIRE SCREEN:\n\n 1. Select second button and then you shall see mouse cursor suggesting to click to capture that screen.\n\n2. Paste the image into any program for usage." +
+            "\n\nFOR CAPTURING A SECTION OF THE SCREEN:\n\n1. Select button one and you shall see mouse cursor changing to tilted arrows.\n\n2. Click mouse left key and keeping it pressed, select the area of interest.\n\n3. Leave the left button and the image is saved to clipboard.\n\n FOR CAPTURING ALL SCREENS:\n\n1. Press the 3rd button and All the screens are captured into one image.\n\n\nThanks for using the utility. Send in your feedback or bugs to mittaltarsem@gmail.com"
+            , "SCREEN CAPTURE HELP !!");
+        }
         #endregion Events
     }
 }
