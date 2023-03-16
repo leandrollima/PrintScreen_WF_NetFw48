@@ -44,14 +44,16 @@ namespace PrintScreen
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblFileName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupIncrementalNumber)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGrabScreen
             // 
             this.btnGrabScreen.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabScreen.Location = new System.Drawing.Point(253, 268);
+            this.btnGrabScreen.Location = new System.Drawing.Point(249, 293);
             this.btnGrabScreen.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabScreen.Name = "btnGrabScreen";
             this.btnGrabScreen.Size = new System.Drawing.Size(205, 44);
@@ -63,7 +65,7 @@ namespace PrintScreen
             // btnGrabArea
             // 
             this.btnGrabArea.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabArea.Location = new System.Drawing.Point(28, 268);
+            this.btnGrabArea.Location = new System.Drawing.Point(13, 293);
             this.btnGrabArea.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabArea.Name = "btnGrabArea";
             this.btnGrabArea.Size = new System.Drawing.Size(205, 44);
@@ -75,7 +77,7 @@ namespace PrintScreen
             // btnGrabAllWindows
             // 
             this.btnGrabAllWindows.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabAllWindows.Location = new System.Drawing.Point(466, 268);
+            this.btnGrabAllWindows.Location = new System.Drawing.Point(487, 293);
             this.btnGrabAllWindows.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrabAllWindows.Name = "btnGrabAllWindows";
             this.btnGrabAllWindows.Size = new System.Drawing.Size(205, 44);
@@ -87,7 +89,7 @@ namespace PrintScreen
             // txtFolder
             // 
             this.txtFolder.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFolder.Location = new System.Drawing.Point(180, 208);
+            this.txtFolder.Location = new System.Drawing.Point(173, 208);
             this.txtFolder.Margin = new System.Windows.Forms.Padding(4);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.Size = new System.Drawing.Size(338, 32);
@@ -96,7 +98,7 @@ namespace PrintScreen
             // btnFolder
             // 
             this.btnFolder.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFolder.Location = new System.Drawing.Point(531, 201);
+            this.btnFolder.Location = new System.Drawing.Point(524, 201);
             this.btnFolder.Margin = new System.Windows.Forms.Padding(4);
             this.btnFolder.Name = "btnFolder";
             this.btnFolder.Size = new System.Drawing.Size(140, 44);
@@ -109,7 +111,7 @@ namespace PrintScreen
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 38);
+            this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 24);
@@ -120,7 +122,7 @@ namespace PrintScreen
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 98);
+            this.label2.Location = new System.Drawing.Point(19, 98);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 24);
@@ -130,7 +132,7 @@ namespace PrintScreen
             // txtPrefix
             // 
             this.txtPrefix.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrefix.Location = new System.Drawing.Point(180, 35);
+            this.txtPrefix.Location = new System.Drawing.Point(173, 43);
             this.txtPrefix.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrefix.Name = "txtPrefix";
             this.txtPrefix.Size = new System.Drawing.Size(486, 32);
@@ -140,7 +142,7 @@ namespace PrintScreen
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 211);
+            this.label3.Location = new System.Drawing.Point(93, 211);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 24);
@@ -150,7 +152,7 @@ namespace PrintScreen
             // rdbtnNumericalIncremental
             // 
             this.rdbtnNumericalIncremental.AutoSize = true;
-            this.rdbtnNumericalIncremental.Location = new System.Drawing.Point(180, 98);
+            this.rdbtnNumericalIncremental.Location = new System.Drawing.Point(173, 98);
             this.rdbtnNumericalIncremental.Name = "rdbtnNumericalIncremental";
             this.rdbtnNumericalIncremental.Size = new System.Drawing.Size(193, 27);
             this.rdbtnNumericalIncremental.TabIndex = 11;
@@ -160,7 +162,7 @@ namespace PrintScreen
             // 
             // nupIncrementalNumber
             // 
-            this.nupIncrementalNumber.Location = new System.Drawing.Point(379, 98);
+            this.nupIncrementalNumber.Location = new System.Drawing.Point(372, 98);
             this.nupIncrementalNumber.Name = "nupIncrementalNumber";
             this.nupIncrementalNumber.Size = new System.Drawing.Size(118, 31);
             this.nupIncrementalNumber.TabIndex = 12;
@@ -173,7 +175,7 @@ namespace PrintScreen
             // rdbtnDateTime
             // 
             this.rdbtnDateTime.AutoSize = true;
-            this.rdbtnDateTime.Location = new System.Drawing.Point(180, 131);
+            this.rdbtnDateTime.Location = new System.Drawing.Point(173, 131);
             this.rdbtnDateTime.Name = "rdbtnDateTime";
             this.rdbtnDateTime.Size = new System.Drawing.Size(141, 27);
             this.rdbtnDateTime.TabIndex = 13;
@@ -184,7 +186,7 @@ namespace PrintScreen
             // rdbtnGuid
             // 
             this.rdbtnGuid.AutoSize = true;
-            this.rdbtnGuid.Location = new System.Drawing.Point(180, 165);
+            this.rdbtnGuid.Location = new System.Drawing.Point(173, 165);
             this.rdbtnGuid.Name = "rdbtnGuid";
             this.rdbtnGuid.Size = new System.Drawing.Size(72, 27);
             this.rdbtnGuid.TabIndex = 14;
@@ -235,23 +237,33 @@ namespace PrintScreen
             this.lblFileName.Size = new System.Drawing.Size(0, 23);
             this.lblFileName.Click += new System.EventHandler(this.lblFileName_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtFolder);
+            this.groupBox1.Controls.Add(this.rdbtnGuid);
+            this.groupBox1.Controls.Add(this.btnFolder);
+            this.groupBox1.Controls.Add(this.rdbtnDateTime);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.nupIncrementalNumber);
+            this.groupBox1.Controls.Add(this.txtPrefix);
+            this.groupBox1.Controls.Add(this.rdbtnNumericalIncremental);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(681, 262);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Parameters to save screenshot";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(705, 377);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.rdbtnGuid);
-            this.Controls.Add(this.rdbtnDateTime);
-            this.Controls.Add(this.nupIncrementalNumber);
-            this.Controls.Add(this.rdbtnNumericalIncremental);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPrefix);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnFolder);
-            this.Controls.Add(this.txtFolder);
             this.Controls.Add(this.btnGrabAllWindows);
             this.Controls.Add(this.btnGrabArea);
             this.Controls.Add(this.btnGrabScreen);
@@ -268,6 +280,8 @@ namespace PrintScreen
             ((System.ComponentModel.ISupportInitialize)(this.nupIncrementalNumber)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +307,6 @@ namespace PrintScreen
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblOpenFolder;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
